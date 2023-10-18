@@ -18,6 +18,10 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
         # Create a new tag
+      - uses: actions/labeler@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Create Tag
         run: |
           git tag v1.0.${{ github.run_number }}
